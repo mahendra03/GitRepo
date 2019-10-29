@@ -31,6 +31,8 @@ pipeline {
                             stage('Integration test') {
                               agent {
                                     docker {
+                                             sudo usermod -a -G docker root
+                                             sudo usermod -a -G docker jenkins
                                             reuseNode true
                                             image 'ubuntu'
                                            }
